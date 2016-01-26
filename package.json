@@ -13,9 +13,12 @@
   "devDependencies": {
     "cheerio": "^0.19.0",
     "chokidar-socket-emitter": "^0.3.0",
+    "colors": "^1.1.2",
+    "getport": "^0.1.0",
     "html-dist": "^0.1.0",
     "http-server": "^0.8.5",
-    "jspm": "^0.16.14"
+    "jspm": "^0.16.14",
+    "opn": "^4.0.0"
   },
   "jspm": {
     "dependencies": {

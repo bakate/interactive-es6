@@ -1,5 +1,8 @@
 import chokidarEvEmitter from 'chokidar-socket-emitter';
 import httpServer from 'http-server';
+import getPort from 'getport';
+import open from 'opn';
+import 'colors';
 
 const server = httpServer.createServer({
   root: '.',
@@ -12,6 +15,10 @@ const server = httpServer.createServer({
 
 chokidarEvEmitter({ app: server.server });
 
-server.listen(8090);
-
-console.log('Listening on 8090');
+getPort(8090, function(err, port) {
+  if (err) throw err;
+  server.listen(port, function() {
+    console.log('Listening on port', String(port).cyan);
+    open('http://localhost:' + port, { wait: false });
+  });
+});

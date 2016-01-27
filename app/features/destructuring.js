@@ -36,5 +36,14 @@ export default [
         <p>En exploitant <code>...</code> en tant que <em>spread</em>, on peut réaliser à la volée un « <code>concat</code> modifiant » sur un tableau A, en lui affixant un tableau B.</p>
       </div>
     )
+  },
+  {
+    index: 5,
+    title: 'Spread sur objet',
+    content: (
+      <div>
+        <p>ES7 permet aussi d’utiliser <code>...</code> en tant que <em>spread</em> sur un litéral objet, ce qui permet de réaliser simplement des fonctions de type <code>Object.assign(…)</code> ou <code>_.extend(…)</code>.</p>
+      </div>
+    )
   }
 ]

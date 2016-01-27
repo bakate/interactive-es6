@@ -3,12 +3,18 @@ import React from 'react';
 const ASSERTION_ERROR_MAPS = {
   'equal': (x, y) => {
     return (
-      <span>Expected {valueOrUndefined(x)} to equal {valueOrUndefined(y)}</span>
+      <span>Je m’attendais à {valueOrUndefined(y)} plutôt qu’à {valueOrUndefined(x)}</span>
     )
   },
   'resolvesTo': (_, y) => {
     return (
-      <span>Je m’attendais à ce que la promesse s’accomplisse avec {valueOrUndefined(y)}</span>
+      <span>La promesse aurait dû s’accomplir avec {valueOrUndefined(y)}</span>
+    )
+  },
+  'method missing': (err) => {
+    const target = err.message.split(' ')[0]
+    return (
+      <span>Je n’ai pas trouvé la fonction <code>{target}</code></span>
     )
   }
 };

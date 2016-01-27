@@ -13,13 +13,16 @@ import { Router, Route, Link } from 'react-router';
 
 import Index from './components/index';
 
-import FeatureA from './components/feature-a';
+import ObjectsClasses from './components/objects-classes';
 
 import Username from './components/username';
 import Dashboard from './components/dashboard';
 
 import Finished from './components/finished';
 
+const FEATURES = {
+  'objects-classes': 'Objets & Classes'
+}
 
 const titleCase = (str) => {
   return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
@@ -39,8 +42,8 @@ class App extends React.Component {
       return null;
     }
 
-    return ['feature-a'].map((feat) => {
-        return <li key={feat}><Link to={`/${feat}`}>{titleCase(feat)}</Link></li>;
+    return ['objects-classes'].map((feat) => {
+        return <li key={feat}><Link to={`/${feat}`}>{FEATURES[feat] || titleCase(feat)}</Link></li>;
       });
   }
 
@@ -97,7 +100,7 @@ class ForceReRender extends React.Component {
         <Route path="" component={App}>
           <Route path="/" component={Index}></Route>
           <Route path="/_dashboard" component={Dashboard}></Route>
-          <Route path="/feature-a" component={FeatureA}></Route>
+          <Route path="/objects-classes" component={ObjectsClasses}></Route>
           <Route path="/finished" component={Finished}></Route>
         </Route>
       </Router>

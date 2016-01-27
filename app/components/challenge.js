@@ -92,6 +92,7 @@ export default class Challenge extends React.Component {
 
   logActivity(res) {
     this.activityChannel.trigger('client-new-activity', {
+      user: store.get('username'),
       challenge: this.props.fixture,
       res,
       src: this.state.src,
@@ -137,17 +138,17 @@ export default class Challenge extends React.Component {
             className="btn btn-default btn-primary"
             type="submit"
             disabled={!this.state.src && !this.state.results}
-            onClick={(e) => this.evaluateCode(e) }>Evaluate</button>
+            onClick={(e) => this.evaluateCode(e) }>Évaluer</button>
         </div>
         <div className="col-md-6">
-          { !this.props.results && <p>Evaluate the code to see the results</p> }
+          { !this.props.results && <p>Évaluez le code pour voir les résultats</p> }
           { this.renderError() }
           { !this.state.codeError && <CodeResults results={this.state.evalResults} />}
 
           <button
             disabled={this.state.evaluationLogResults.length < 1}
             className="btn btn-warning pull-right"
-            onClick={(e) => this.handleHelp(e)}>I would like some help please :)</button>
+            onClick={(e) => this.handleHelp(e)}>Viens m’aider steplaît :)</button>
         </div>
       </div>
     );

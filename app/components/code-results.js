@@ -8,7 +8,7 @@ const ASSERTION_ERROR_MAPS = {
   },
   'resolvesTo': (_, y) => {
     return (
-      <span>Expected the given promise to resolve to {valueOrUndefined(y)}</span>
+      <span>Je m’attendais à ce que la promesse s’accomplisse avec {valueOrUndefined(y)}</span>
     )
   }
 };
@@ -31,7 +31,7 @@ export default class CodeResults extends React.Component {
       <li key={JSON.stringify(result)} className={cssClass}>
         { resultToString(result) }
         <span className="badge">
-          { result.passed === true ? 'Success! ' : 'Failure! ' }
+          { result.passed === true ? 'Trop fort ! ' : 'Dommage ! ' }
         </span>
       </li>
     )

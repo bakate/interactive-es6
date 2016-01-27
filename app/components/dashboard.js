@@ -50,7 +50,7 @@ export default class Dashboard extends React.Component {
           <td>{ping.challenge}</td>
           <td>{ping.log.length}</td>
           <td><pre><code>{JSON.stringify(ping.log[ping.log.length-1], null, 2)}</code></pre></td>
-          <td><button className="btn btn-default" onClick={(e) => this.resolve(e, index)}>Resolve</button></td>
+          <td><button className="btn btn-default" onClick={(e) => this.resolve(e, index)}>On l’a aidé-e</button></td>
         </tr>
       );
     });
@@ -58,11 +58,12 @@ export default class Dashboard extends React.Component {
 
   renderActivity() {
     return this.state.activity.map((activity, index) => {
-      const wasSuccess = activity.res.error != true && activity.res.some((a) => a.passed === false);
+      const wasSuccess = activity.res.error != true && activity.res.every((a) => a.passed === true);
       return (
         <tr key={JSON.stringify(activity)+index}>
+          <td>{activity.user}</td>
           <td>{activity.challenge}</td>
-          <td>{ wasSuccess ? 'Success!' : 'Fail!' }</td>
+          <td>{ wasSuccess ? 'Trop fort !' : 'Dommage !' }</td>
         </tr>
       );
     });
@@ -71,20 +72,20 @@ export default class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h4>Pings for Help</h4>
+        <h4>Demandes d’aide</h4>
         <table className="table table-striped">
           <thead>
-            <tr><th>Name</th><th>Challenge</th><th>Attempts</th><th>Last</th><th>Resolve</th></tr>
+            <tr><th>Nom</th><th>Exercice</th><th>Tentatives</th><th>Dernière</th><th>Aidé-e ?</th></tr>
           </thead>
           <tbody>
             { this.renderRows() }
           </tbody>
         </table>
 
-        <h4>Activity Feed</h4>
+        <h4>Activité</h4>
         <table className="table table-striped">
           <thead>
-            <tr><th>Challenge</th><th>Result</th></tr>
+            <tr><th>Nom</th><th>Exercice</th><th>Résultat</th></tr>
           </thead>
           <tbody>
             { this.renderActivity() }

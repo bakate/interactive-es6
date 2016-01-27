@@ -10,7 +10,7 @@ export default class FeatureA extends React.Component {
       <div className="challenge row">
         <Feature feature="feature-a" />
         <div className="col-md-12">
-          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Ready to move on? It’s over!</Link>
+          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Eh ben c’était le dernier, dis donc…</Link>
         </div>
       </div>
     );

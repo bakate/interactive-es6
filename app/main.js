@@ -60,7 +60,7 @@ class App extends React.Component {
         <nav className="navbar navbar-default">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">ES6 Workshop</a>
+              <a className="navbar-brand" href="#">Pratiquer ES6 @ JS Total</a>
             </div>
 
             <Username nameSetCallback={() => this.nameSet()} />
@@ -72,7 +72,7 @@ class App extends React.Component {
             </div>
 
             <form className="navbar-form navbar-left">
-              <button className="btn btn-default" onClick={(e) => this.reset(e) }>Reset</button>
+              <button className="btn btn-default" onClick={(e) => this.reset(e) }>Repartir à zéro</button>
             </form>
 
           </div>

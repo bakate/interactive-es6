@@ -6,9 +6,9 @@ export default class ExpectedResult extends React.Component {
 
     return (
       <div>
-        <p>The below values are the values expected by the site.</p>
-        <p>You should edit the above code such that the values shown in the <code>result</code> object match what the site is expecting</p>
-        <p>When you're ready to test yourself, press the "Evalute" button.</p>
+        <p>Les assertions en fin de code décrivent ce que l’exercice attend.</p>
+        <p>Modifiez le code qui les précède pour les faire passer.</p>
+        <p>Quand vous êtes prêt-e à tester votre code, utilisez le bouton « Évaluer ».</p>
         <pre><code>
           { JSON.stringify(this.props.results, null, 2) }
         </code></pre>

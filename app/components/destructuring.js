@@ -10,7 +10,7 @@ export default class Destructuring extends React.Component {
       <div className="challenge row">
         <Feature feature="destructuring" />
         <div className="col-md-12">
-          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Eh ben c’était le dernier, dis donc…</Link>
+          <Link className="btn btn-primary btn-lg btn-block" to= "/template-strings">Allez, c’est l’heure de triturer tes strings…</Link>
         </div>
       </div>
     );

@@ -16,6 +16,7 @@ import Index from './components/index';
 
 import ObjectsClasses from './components/objects-classes';
 import Destructuring from './components/destructuring';
+import TemplateStrings from './components/template-strings';
 
 import Username from './components/username';
 import Dashboard from './components/dashboard';
@@ -24,12 +25,9 @@ import Finished from './components/finished';
 
 const FEATURES = {
   'objects-classes': 'Objets & Classes',
-  'destructuring': 'Déstructuration'
+  'destructuring': 'Déstructuration',
+  'template-strings': 'Template Strings'
 }
-
-const titleCase = (str) => {
-  return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
-};
 
 const hasEnteredName = () => !!store.get('username');
 
@@ -45,8 +43,8 @@ class App extends React.Component {
       return null;
     }
 
-    return ['objects-classes', 'destructuring'].map((feat) => {
-        return <li key={feat}><Link to={`/${feat}`}>{FEATURES[feat] || titleCase(feat)}</Link></li>;
+    return ['objects-classes', 'destructuring', 'template-strings'].map((feat) => {
+        return <li key={feat}><Link to={`/${feat}`}>{FEATURES[feat]}</Link></li>;
       });
   }
 
@@ -105,6 +103,7 @@ class ForceReRender extends React.Component {
           <Route path="/_dashboard" component={Dashboard}></Route>
           <Route path="/objects-classes" component={ObjectsClasses}></Route>
           <Route path="/destructuring" component={Destructuring}></Route>
+          <Route path="/template-strings" component={TemplateStrings}></Route>
           <Route path="/finished" component={Finished}></Route>
         </Route>
       </Router>

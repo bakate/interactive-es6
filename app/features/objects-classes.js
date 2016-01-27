@@ -24,7 +24,16 @@ export default [
     title: 'Appels « super »',
     content: (
       <div>
-        <p>Enfin, il devient facile d'appeler la version héritée du constructeur, et celle d'une méthode quelconque.  Une contrainte existe toutefois sur l'appel hérité au sein du constructeur.</p>
+        <p>Il devient par ailleurs facile d'appeler la version héritée du constructeur, et celle d'une méthode quelconque.  Une contrainte existe toutefois sur l'appel hérité au sein du constructeur.</p>
+      </div>
+    )
+  },
+  {
+    index: 4,
+    title: 'Propriétés calculées',
+    content: (
+      <div>
+        <p>Enfin, définir à la volée une propriété calculée n’a jamais été aussi facile…</p>
       </div>
     )
   }

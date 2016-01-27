@@ -4,14 +4,13 @@ import Feature from './feature';
 
 import { Link } from 'react-router';
 
-export default class Arrows extends React.Component {
+export default class FeatureA extends React.Component {
   render() {
     return (
       <div className="challenge row">
-        <Feature feature="promises" />
-
+        <Feature feature="feature-a" />
         <div className="col-md-12">
-          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Done!</Link>
+          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Ready to move on? It’s over!</Link>
         </div>
       </div>
     );

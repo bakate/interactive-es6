@@ -13,13 +13,7 @@ import { Router, Route, Link } from 'react-router';
 
 import Index from './components/index';
 
-import Scopes from './components/scopes';
-import Destructuring from './components/destructuring';
-import Classes from './components/classes';
-import Functions from './components/functions';
-import Arrows from './components/arrows';
-import Promises from './components/promises';
-import TemplateStrings from './components/template-strings';
+import FeatureA from './components/feature-a';
 
 import Username from './components/username';
 import Dashboard from './components/dashboard';
@@ -45,9 +39,7 @@ class App extends React.Component {
       return null;
     }
 
-    return ['scopes', 'destructuring',
-      'classes', 'functions',
-      'arrows', 'template-strings', 'promises'].map((feat) => {
+    return ['feature-a'].map((feat) => {
         return <li key={feat}><Link to={`/${feat}`}>{titleCase(feat)}</Link></li>;
       });
   }
@@ -105,13 +97,7 @@ class ForceReRender extends React.Component {
         <Route path="" component={App}>
           <Route path="/" component={Index}></Route>
           <Route path="/_dashboard" component={Dashboard}></Route>
-          <Route path="/scopes" component={Scopes}></Route>
-          <Route path="/destructuring" component={Destructuring}></Route>
-          <Route path="/classes" component={Classes}></Route>
-          <Route path="/functions" component={Functions}></Route>
-          <Route path="/arrows" component={Arrows}></Route>
-          <Route path="/template-strings" component={TemplateStrings}></Route>
-          <Route path="/promises" component={Promises}></Route>
+          <Route path="/feature-a" component={FeatureA}></Route>
           <Route path="/finished" component={Finished}></Route>
         </Route>
       </Router>

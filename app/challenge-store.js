@@ -10,6 +10,9 @@ export function saveChallenge(fixture, src) {
 }
 
 export function getChallenge(fixture) {
+  if (store.get(fixtureToKey('ignore-fixtures'))) {
+    return null;
+  }
   return store.get(fixtureToKey(fixture));
 }
 

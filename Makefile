@@ -9,5 +9,6 @@ build:
 	cp -r app/features dist/app
 	cp -r app/fixtures dist/app
 	cp index.html dist/index.html
+	cp CNAME dist/CNAME
 
 	./node_modules/.bin/babel-node build-html.js

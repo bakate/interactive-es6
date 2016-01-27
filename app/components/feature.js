@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Challenge from './challenge';
+import FEATURES from '../features/index';
 
 export default class Feature extends React.Component {
   constructor(props) {
@@ -40,8 +41,13 @@ export default class Feature extends React.Component {
 
 
   render() {
+    // For some reasons `props` get overwritten post-constructor, so
+    // we can't get that just once at constructor time and augment props
+    // there :-/
+    const featureTitle = FEATURES.find(feat => feat.key === this.props.feature).title
     return (
       <div>
+        <h1>{ featureTitle || this.props.feature }</h1>
         { this.state.features.map((f) => this.renderFeature(f)) }
       </div>
     )

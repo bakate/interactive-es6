@@ -12,24 +12,13 @@ import { render } from 'react-dom';
 import React from 'react';
 import { Router, Route, Link } from 'react-router';
 
+import FEATURES from './features/index';
 import Index from './components/index';
-
-import ObjectsClasses from './components/objects-classes';
-import Destructuring from './components/destructuring';
-import TemplateStrings from './components/template-strings';
-import ArrowFunctions from './components/arrow-functions';
 
 import Username from './components/username';
 import Dashboard from './components/dashboard';
 
 import Finished from './components/finished';
-
-const FEATURES = {
-  'objects-classes': 'Objets & Classes',
-  'destructuring': 'Déstructuration',
-  'template-strings': 'Template Strings',
-  'arrow-functions': 'Fonctions fléchées',
-}
 
 const hasEnteredName = () => !!store.get('username');
 
@@ -45,9 +34,9 @@ class App extends React.Component {
       return null;
     }
 
-    return ['objects-classes', 'destructuring', 'template-strings', 'arrow-functions'].map((feat) => {
-        return <li key={feat}><Link to={`/${feat}`}>{FEATURES[feat]}</Link></li>;
-      });
+    return FEATURES.map(({ key, title }) => {
+      return <li key={key}><Link to={`/${key}`}>{title}</Link></li>;
+    });
   }
 
   reset(e) {
@@ -90,6 +79,11 @@ class App extends React.Component {
     )
   }
 }
+
+import ObjectsClasses from './components/objects-classes';
+import Destructuring from './components/destructuring';
+import TemplateStrings from './components/template-strings';
+import ArrowFunctions from './components/arrow-functions';
 
 class ForceReRender extends React.Component {
   componentWillMount() {

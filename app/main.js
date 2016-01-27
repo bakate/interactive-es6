@@ -80,11 +80,6 @@ class App extends React.Component {
   }
 }
 
-import ObjectsClasses from './components/objects-classes';
-import Destructuring from './components/destructuring';
-import TemplateStrings from './components/template-strings';
-import ArrowFunctions from './components/arrow-functions';
-
 class ForceReRender extends React.Component {
   componentWillMount() {
     // to work with jspm-live-reload
@@ -96,12 +91,13 @@ class ForceReRender extends React.Component {
       <Router onUpdate={() => window.scrollTo(0, 0)}>
         <Route path="" component={App}>
           <Route path="/" component={Index}></Route>
-          <Route path="/_dashboard" component={Dashboard}></Route>
-          <Route path="/objects-classes" component={ObjectsClasses}></Route>
-          <Route path="/destructuring" component={Destructuring}></Route>
-          <Route path="/template-strings" component={TemplateStrings}></Route>
-          <Route path="/arrow-functions" component={ArrowFunctions}></Route>
+          {
+            FEATURES.map(feat => {
+              return <Route key={feat.key} path={`/${feat.key}`} component={feat.component}></Route>
+            })
+          }
           <Route path="/finished" component={Finished}></Route>
+          <Route path="/_dashboard" component={Dashboard}></Route>
         </Route>
       </Router>
     )

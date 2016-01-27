@@ -15,6 +15,7 @@ import { Router, Route, Link } from 'react-router';
 import Index from './components/index';
 
 import ObjectsClasses from './components/objects-classes';
+import Destructuring from './components/destructuring';
 
 import Username from './components/username';
 import Dashboard from './components/dashboard';
@@ -22,7 +23,8 @@ import Dashboard from './components/dashboard';
 import Finished from './components/finished';
 
 const FEATURES = {
-  'objects-classes': 'Objets & Classes'
+  'objects-classes': 'Objets & Classes',
+  'destructuring': 'Déstructuration'
 }
 
 const titleCase = (str) => {
@@ -43,7 +45,7 @@ class App extends React.Component {
       return null;
     }
 
-    return ['objects-classes'].map((feat) => {
+    return ['objects-classes', 'destructuring'].map((feat) => {
         return <li key={feat}><Link to={`/${feat}`}>{FEATURES[feat] || titleCase(feat)}</Link></li>;
       });
   }
@@ -102,6 +104,7 @@ class ForceReRender extends React.Component {
           <Route path="/" component={Index}></Route>
           <Route path="/_dashboard" component={Dashboard}></Route>
           <Route path="/objects-classes" component={ObjectsClasses}></Route>
+          <Route path="/destructuring" component={Destructuring}></Route>
           <Route path="/finished" component={Finished}></Route>
         </Route>
       </Router>

@@ -10,7 +10,7 @@ export default class ObjectsClasses extends React.Component {
       <div className="challenge row">
         <Feature feature="objects-classes" />
         <div className="col-md-12">
-          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Eh ben c’était le dernier, dis donc…</Link>
+          <Link className="btn btn-primary btn-lg btn-block" to= "/destructuring">OK ! À présent, déstructurons un peu tout ça…</Link>
         </div>
       </div>
     );

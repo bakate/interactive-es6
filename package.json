@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node scripts/jspm-live-server",
     "postinstall": "jspm install",
-    "publish": "cd dist && surge ."
+    "deploy": "cd dist && surge ."
   },
   "keywords": [],
   "author": "",

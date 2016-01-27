@@ -78,11 +78,13 @@ export default class Challenge extends React.Component {
         this.setState({
           codeError: `${errorType}: ${message}`,
           evaluationLogResults: this.state.evaluationLogResults.concat([results]),
+          allClear: false
         });
       } else {
         this.setState({
           evalResults: results,
-          evaluationLogResults: this.state.evaluationLogResults.concat([results])
+          evaluationLogResults: this.state.evaluationLogResults.concat([results]),
+          allClear: results.every(res => res.passed === true)
         });
       }
 
@@ -146,7 +148,7 @@ export default class Challenge extends React.Component {
           { !this.state.codeError && <CodeResults results={this.state.evalResults} />}
 
           <button
-            disabled={this.state.evaluationLogResults.length < 1}
+            disabled={this.state.evaluationLogResults.length < 1 || this.state.allClear}
             className="btn btn-warning pull-right"
             onClick={(e) => this.handleHelp(e)}>Viens m’aider steplaît :)</button>
         </div>

@@ -1,0 +1,12 @@
+#app {
+  font-size: 16px;
+}
+
+/* We put an ID in there to ensure higher specificity even if
+   bundled **before** what we override */
+#app .CodeMirror {
+  font-family: Source Code Pro, Menlo, Monaco, monospace;
+  height: auto;
+  min-height: 200px;
+  max-height: 800px;
+}

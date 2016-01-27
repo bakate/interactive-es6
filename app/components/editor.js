@@ -21,9 +21,10 @@ export default class  extends React.Component {
   render() {
     const options = {
       mode: 'javascript',
-      theme: 'solarized',
+      theme: 'monokai',
       lineNumbers: true,
-      lineWrapping: true
+      lineWrapping: false,
+      tabSize: 2,
     }
     return (
       <CodeMirror

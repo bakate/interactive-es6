@@ -1,6 +1,7 @@
 import './css/bootstrap.min.css!';
 import 'npm:codemirror@5.8.0/lib/codemirror.css!';
-import 'npm:codemirror@5.8.0/theme/solarized.css!';
+import 'npm:codemirror@5.8.0/theme/monokai.css!';
+import './css/overrides.css!';
 import 'fetch'
 
 import store from 'store';

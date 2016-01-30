@@ -55,7 +55,7 @@ class App extends React.Component {
         <nav className="navbar navbar-default">
           <div className="container">
             <div className="navbar-header">
-              <a className="navbar-brand" href="#">ES6 @ JS Total</a>
+              <a className="navbar-brand" href="#">ES6 @ JS Attitude</a>
             </div>
 
             <Username nameSetCallback={() => this.nameSet()} />

@@ -12,7 +12,9 @@ import { subscribeToHelp, subscribeToActivity } from '../challenge-channels';
 
 import { getChallenge, saveChallenge } from '../challenge-store';
 
-const INITIAL_SOURCE = 'Loading...';
+import { DISPLAY_HELP as displayHelp } from '../ENV';
+
+const INITIAL_SOURCE = 'Chargement en cours…';
 
 export default class Challenge extends React.Component {
   constructor(props) {
@@ -146,11 +148,12 @@ export default class Challenge extends React.Component {
           { !this.props.results && <p>Évaluez le code pour voir les résultats</p> }
           { this.renderError() }
           { !this.state.codeError && <CodeResults results={this.state.evalResults} />}
-
-          <button
-            disabled={this.state.evaluationLogResults.length < 1 || this.state.allClear}
-            className="btn btn-warning pull-right"
-            onClick={(e) => this.handleHelp(e)}>Viens m’aider steplaît :)</button>
+          { displayHelp &&
+            <button
+              disabled={this.state.evaluationLogResults.length < 1 || this.state.allClear}
+              className="btn btn-warning pull-right"
+              onClick={(e) => this.handleHelp(e)}>Viens m’aider steplaît :)</button>
+          }
         </div>
       </div>
     );

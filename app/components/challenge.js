@@ -72,9 +72,8 @@ export default class Challenge extends React.Component {
 
   evaluateCode(e) {
     e.preventDefault();
-    Evaluator.run(this.state.src).then((results) => {
-      // TODO: Evaluato 0.0.6 returns a promise so we should use that
-      // and then we can catch the error
+
+    const handleResult = (results) => {
       if (results[0].error) {
         const { errorType, message } = results[0];
         this.setState({
@@ -91,7 +90,9 @@ export default class Challenge extends React.Component {
       }
 
       this.logActivity(results);
-    });
+    }
+
+    Evaluator.run(this.state.src).then(handleResult, handleResult);
   }
 
   logActivity(res) {

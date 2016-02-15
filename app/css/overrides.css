@@ -8,5 +8,9 @@
   font-family: Source Code Pro, Menlo, Monaco, monospace;
   height: auto;
   min-height: 200px;
-  max-height: 800px;
+  /*max-height: 800px;*/
+}
+
+#app .container {
+  width: 100%;
 }

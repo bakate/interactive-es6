@@ -1,12 +1,16 @@
-// === Déstructuration : concat modifiant
+// === Déstructuration : « paramètres nommés »
 
-const arr1 = ['Alice', 'Bob']
-const arr2 = ['Claire', 'David']
-
-const newLength = arr1.push(/* ??? */)
+// Déclarez convenablement term, times (défaut : 1)
+// et separator (défaut : ',') dans la signature.
+function repeat(/* ??? */) {
+  const result = []
+  for (let index = 0; index < times; ++index) {
+    result.push(term)
+  }
+  return result.join(separator)
+}
 
 // === Code de vérification -- ne pas toucher
-
-assertEqual(newLength, 4)
-assertEqual(arr1[2], arr2[0])
-assertEqual(arr1[3], arr2[1])
+assertEqual(repeat({ term: 'yolo' }), 'yolo')
+assertEqual(repeat({ times: 3, term: 'yolo' }), 'yolo,yolo,yolo')
+assertEqual(repeat({ times: 2, term: 'yolo', separator: '-' }), 'yolo-yolo')

@@ -24,7 +24,7 @@ function valueOrUndefined(x) {
 }
 
 const SOURCES = {
-  true: ['Trop fort !', '\\o/', 'Tu roxxes !', 'Legit!', 'Righteous!', 'Bogoss™', 'Joliii…', 'Bon ça…'],
+  true: ['Trop fort !', '\\o/', 'Tu roxxes !', 'Legit!', 'Righteous!', 'BG™', 'Joliii…', 'Bon ça…'],
   false: ['Dommage', 'Argh !', 'Oops…', 'Damned!', 'Et m…', 'Sapristi !', 'Disgrâce !']
 }
 

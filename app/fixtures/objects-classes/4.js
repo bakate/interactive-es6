@@ -1,19 +1,27 @@
-// === Litéraux objets : propriétés calculées
+// === Litéraux objets : appels super
 
-function makeObject(customProp, customValue) {
-  return {
-    type: 'custom',
-    createdAt: Date.now(),
+class Person {
+  constructor (first, last) {
+    this.first = first
+    this.last = last
+  }
+
+  greet (whom) { return `Bonjour ${whom} !` }
+}
+
+class Geek extends Person {
+  constructor (first, last, nick) {
+    // ???
+  }
+
+  greet (whom) {
     // ???
   }
 }
 
 // === Code de vérification -- ne pas toucher
 
-const roberto = makeObject('name', 'Roberto')
-assertEqual(roberto.name, 'Roberto')
-assertEqual(roberto._name, 'Private Roberto')
-
-const chris = makeObject('age', 38)
-assertEqual(chris.age, 38)
-assertEqual(chris._age, 'Private 38')
+const defunkt = new Geek('Chris', 'Wanstrath', 'Defunkt')
+assertEqual(defunkt.first, 'Chris')
+assertEqual(defunkt.nick, 'Defunkt')
+assertEqual(defunkt.greet('Scott'), 'Bonjour Scott ! Je suis Defunkt.')

@@ -1,27 +1,15 @@
-// === Litéraux objets : appels super
+// === Litéraux objets : accesseurs lecteurs/écrivains
 
-class Person {
-  constructor (first, last) {
-    this.first = first
-    this.last = last
-  }
+const roiDeLaClasse = {
+  first: 'Georges',
+  last: 'Abitbol'
 
-  greet (whom) { return `Bonjour ${whom} !` }
-}
-
-class Geek extends Person {
-  constructor (first, last, nick) {
-    // ???
-  }
-
-  greet (whom) {
-    // ???
-  }
+  // ???
 }
 
 // === Code de vérification -- ne pas toucher
 
-const defunkt = new Geek('Chris', 'Wanstrath', 'Defunkt')
-assertEqual(defunkt.first, 'Chris')
-assertEqual(defunkt.nick, 'Defunkt')
-assertEqual(defunkt.greet('Scott'), 'Bonjour Scott ! Je suis Defunkt.')
+assertEqual(roiDeLaClasse.fullName, 'Georges Abitbol')
+roiDeLaClasse.fullName = 'John Wayne'
+assertEqual(roiDeLaClasse.first, 'John')
+assertEqual(roiDeLaClasse.last, 'Wayne')

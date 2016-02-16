@@ -1,15 +1,10 @@
-// === Déstructuration : objets
+// === Déstructuration : tableaux
 
-const nostromo = {
-  name: { first: 'Christophe', last: 'Porteneuve' },
-  trainings: ['JS Total', 'Node.js', 'Git Total']
-}
-
-// Affectez correctement first, lastName, nodeTraining
-const '???' = nostromo
+// Affecter correctement winner, runnerUp et others
+const '???' = ['Alice', 'Bob', 'Claire', 'Dave']
 
 // === Code de vérification -- ne pas toucher
 
-assertEqual(first, nostromo.name.first)
-assertEqual(lastName, nostromo.name.last)
-assertEqual(nodeTraining, nostromo.trainings[1])
+assertEqual(winner, 'Alice')
+assertEqual(runnerUp, 'Bob')
+assertEqual(others.join ? others.join(' ') : others, 'Claire Dave')

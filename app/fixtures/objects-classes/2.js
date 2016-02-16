@@ -1,15 +1,20 @@
-// === Litéraux objets : accesseurs lecteurs/écrivains
+// === Classes : constructeurs et méthodes
 
-const roiDeLaClasse = {
-  first: 'Georges',
-  last: 'Abitbol'
+const first = 'Georges'
+const last = 'Abitbol'
 
+class Person {
   // ???
 }
 
 // === Code de vérification -- ne pas toucher
 
-assertEqual(roiDeLaClasse.fullName, 'Georges Abitbol')
-roiDeLaClasse.fullName = 'John Wayne'
-assertEqual(roiDeLaClasse.first, 'John')
-assertEqual(roiDeLaClasse.last, 'Wayne')
+const meilleurActeur = new Person('Clark', 'Gable')
+assertEqual(meilleurActeur.first, 'Clark')
+assertEqual(meilleurActeur.last, 'Gable')
+
+try {
+  assertEqual(meilleurActeur.fullName(), 'Clark Gable')
+} catch (err) {
+  createAssertResult(false, 'method missing', [err])
+}

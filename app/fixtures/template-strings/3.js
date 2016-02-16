@@ -1,16 +1,15 @@
 // === Template Strings : tagged
 
-const login = 'Roberto<script>alert("p0wned!")</script>'
-const comment = '<img src="//haxx0r.net/tracker.png"/> Super article…'
+const [yay, nay, yo] = ['Yay', 'Nay', 'Yo']
 
-const post = html`<cite>${login}</cite> dit : <blockquote>${comment}</blockquote>`
+const result = bracketize`They say ${yay} then they say ${nay} but they mean ${yo}`
 
-function html(/* ??? */) {
+function bracketize(/* ??? */) {
   return statics.reduce(function(acc, text, index) {
-    // ???
+    return acc + // ???
   }, '')
 }
 
 // === Code de vérification -- ne pas toucher
 
-assertEqual(post, '<cite>Roberto&lt;script&gt;alert(&quot;p0wned!&quot;)&lt;/script&gt;</cite> dit : <blockquote>&lt;img src=&quot;//haxx0r.net/tracker.png&quot;/&gt; Super article…</blockquote>')
+assertEqual(result, 'They say [Yay] then they say [Nay] but they mean [Yo]')

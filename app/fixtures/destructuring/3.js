@@ -1,16 +1,15 @@
-// === Déstructuration : « paramètres nommés »
+// === Déstructuration : objets
 
-// Déclarez convenablement term, times (défaut : 1)
-// et separator (défaut : ',') dans la signature.
-function repeat(/* ??? */) {
-  const result = []
-  for (let index = 0; index < times; ++index) {
-    result.push(term)
-  }
-  return result.join(separator)
+const nostromo = {
+  name: { first: 'Christophe', last: 'Porteneuve' },
+  trainings: ['JS Total', 'Node.js', 'Git Total']
 }
 
+// Affectez correctement first, lastName, nodeTraining
+const '???' = nostromo
+
 // === Code de vérification -- ne pas toucher
-assertEqual(repeat({ term: 'yolo' }), 'yolo')
-assertEqual(repeat({ times: 3, term: 'yolo' }), 'yolo,yolo,yolo')
-assertEqual(repeat({ times: 2, term: 'yolo', separator: '-' }), 'yolo-yolo')
+
+assertEqual(first, nostromo.name.first)
+assertEqual(lastName, nostromo.name.last)
+assertEqual(nodeTraining, nostromo.trainings[1])

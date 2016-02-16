@@ -23,8 +23,8 @@ export default class  extends React.Component {
       mode: 'javascript',
       theme: 'monokai',
       lineNumbers: true,
-      lineWrapping: false,
-      tabSize: 2,
+      lineWrapping: true,
+      tabSize: 2
     }
     return (
       <CodeMirror

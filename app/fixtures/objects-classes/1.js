@@ -1,4 +1,4 @@
-// === Litéraux objets : propriétés raccourcies et méthodes
+// === Littéraux objets : propriétés raccourcies et méthodes
 
 const first = 'Georges'
 const last = 'Abitbol'

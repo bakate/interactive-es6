@@ -1,4 +1,4 @@
-// === Litéraux objets : propriétés calculées
+// === Littéraux objets : propriétés calculées
 
 function makeObject(customProp, customValue) {
   return {

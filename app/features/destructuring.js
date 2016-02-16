@@ -56,7 +56,7 @@ export default [
     title: 'Spread sur objet',
     content: (
       <div>
-        <p>ES7 permet aussi d’utiliser <code>...</code> en tant que <em>spread</em> sur un litéral objet, ce qui permet de réaliser simplement des fonctions de type <code>Object.assign(…)</code> ou <code>_.extend(…)</code>.</p>
+        <p>ES7 permet aussi d’utiliser <code>...</code> en tant que <em>spread</em> sur un littéral objet, ce qui permet de réaliser simplement des fonctions de type <code>Object.assign(…)</code> ou <code>_.extend(…)</code>.</p>
         <p>À l’aide de cette syntaxe, faites un <code>return</code> unique qui produit un objet dont le contenu démarre avec une copie d’<code>ORIGINAL</code>, la modifie sur base de son argument <code>overrides</code>, mais garantit en tout état de cause un champ <code>age</code> à 42.</p>
       </div>
     )

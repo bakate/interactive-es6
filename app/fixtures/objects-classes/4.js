@@ -1,4 +1,4 @@
-// === Litéraux objets : appels super
+// === Littéraux objets : appels super
 
 class Person {
   constructor (first, last) {

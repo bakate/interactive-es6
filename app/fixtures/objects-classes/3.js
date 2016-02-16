@@ -1,4 +1,4 @@
-// === Litéraux objets : accesseurs lecteurs/écrivains
+// === Littéraux objets : accesseurs lecteurs/écrivains
 
 const roiDeLaClasse = {
   first: 'Georges',

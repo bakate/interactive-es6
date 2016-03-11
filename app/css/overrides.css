@@ -14,3 +14,13 @@
 #app .container {
   width: 100%;
 }
+
+.challenge:not(.row) {
+  display: flex;
+}
+
+.evalResultContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}

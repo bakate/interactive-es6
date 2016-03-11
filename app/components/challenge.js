@@ -145,7 +145,7 @@ export default class Challenge extends React.Component {
             disabled={!this.state.src && !this.state.results}
             onClick={(e) => this.evaluateCode(e) }>Évaluer</button>
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 evalResultContainer">
           { !this.props.results && <p>Évaluez le code pour voir les résultats</p> }
           { this.renderError() }
           { !this.state.codeError && <CodeResults results={this.state.evalResults} />}

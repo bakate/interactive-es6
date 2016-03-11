@@ -29,7 +29,7 @@ export default class Feature extends React.Component {
 
   renderFeature(feature) {
     return (
-      <div className="col-md-12" key={feature.index}>
+      <div className="col-md-12 featureEntry" key={feature.index}>
         <Challenge
           results = { this.resultLocation(feature) }
           fixture = { this.fixtureLocation(feature) }

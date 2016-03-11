@@ -17,7 +17,7 @@ export default [
     title: 'Ayé, j’ai gardé mon this !',
     content: (
       <div>
-        <p>Les fonctions fléchées ne s’approprient pas un certain nombre d’identifiants techniques, contrairement aux fonctions classiques (mot-clé <code>function</code>).  Du coup, par exemple, le <code>this</code> est lexical, comme n’importe qulle autre variable, ce qui est en général bien pratique…</p>
+        <p>Les fonctions fléchées ne s’approprient pas un certain nombre d’identifiants techniques, contrairement aux fonctions classiques (mot-clé <code>function</code>).  Du coup, par exemple, le <code>this</code> est lexical, comme n’importe quelle autre variable, ce qui est en général bien pratique…</p>
         <p>Dans cet exercice, vous devez écrire un prédicat de filtre qui ne laisse passer que les contributions dont le champ <code>author</code> a une valeur présente dans le champ <code>biasedTowards</code> de l’objet courant (<code>BDFL</code>).</p>
         <p>Si vous passiez une fonction traditionnelle (une expression de fonction utilisant le mot-clé <code>function</code>) comme prédicat à <code>filter</code>, vous n’auriez pas le bon <code>this</code> associé, et ne pourriez donc pas consulter directement <code>this.biasedTowards</code>.  Mais avec une fonction fléchée, le <code>this</code> lexical est laissé tranquille, et donc ça marche !</p>
       </div>

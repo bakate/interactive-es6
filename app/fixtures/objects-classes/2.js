@@ -1,8 +1,5 @@
 // === Classes : constructeurs et méthodes
 
-const first = 'Georges'
-const last = 'Abitbol'
-
 class Person {
   // ???
 }

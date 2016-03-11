@@ -18,7 +18,7 @@ export default [
     content: (
       <div>
         <p>Les corps de classes aussi disposent maintenant de syntaxes raccourcies pour les méthodes, ainsi que d'une syntaxe officielle pour le constructeur.</p>
-        <p>Utilisez la syntaxe <code>constructor</code> pour permettre l’înitialisation des champs <code>first</code> et <code>last</code> des instances de <code>Person</code> lors de l’instanciation, et ajoutez une méthode <code>fullName</code> identique à celle de l’exercice précédent.</p>
+        <p>Utilisez la syntaxe <code>constructor</code> pour permettre l’initialisation des champs <code>first</code> et <code>last</code> des instances de <code>Person</code> lors de l’instanciation, et ajoutez une méthode <code>fullName</code> identique à celle de l’exercice précédent.</p>
         <p>Attention : dans le corps d’une classe ES6, il n’y a pas de virgules entre les membres, contrairement à ce qui se passe dans un littéral objet.</p>
       </div>
     )

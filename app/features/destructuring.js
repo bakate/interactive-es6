@@ -27,7 +27,7 @@ export default [
     content: (
       <div>
         <p>Les objets sont déstructurables, même en profondeur, en encadrant le récepteur par des accolades, et en utilisant les noms de propriétés, quitte à les renommer avec une syntaxe à deux-points (<code>:</code>).</p>
-        <p>Cet exercice a besoin d’une déstructuration imbriquée pour affecter en une seule fois trois constantes : <code>first</code>, qui ira chercher <code>name.first</code> ; <code>lastName</code>, qui ira chercher <code>name.last</code> ; et enfin <code>nodeTraining</code>, qui ira chercher la deuxième valeur de <trainings>.</trainings></p>
+        <p>Cet exercice a besoin d’une déstructuration imbriquée pour affecter en une seule fois trois constantes : <code>first</code>, qui ira chercher <code>name.first</code> ; <code>lastName</code>, qui ira chercher <code>name.last</code> ; et enfin <code>nodeTraining</code>, qui ira chercher la deuxième valeur de <code>trainings</code>.</p>
       </div>
     )
   },

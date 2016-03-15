@@ -16,7 +16,7 @@ function html(/* ??? */) {
 function escapeString(text) {
   return text
     .replace(/&/g, '&amp;')
-    // ??? -- traiter aussi '<' => '&lt;'' -- '>' => '&gt;' -- '"' => '&quot;' -- "'" => '&apos;'
+    // ??? -- traiter aussi '<' => '&lt;' -- '>' => '&gt;' -- '"' => '&quot;' -- "'" => '&apos;'
 }
 
 // === Code de vérification -- ne pas toucher

@@ -16,12 +16,14 @@ System.config({
   map: {
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.34",
+    "bootstrap": "npm:bootstrap@3.3.6",
     "capaj/jspm-hot-reloader": "github:capaj/systemjs-hot-reloader@0.5.5",
     "clean-css": "npm:clean-css@3.4.7",
     "core-js": "npm:core-js@1.2.6",
     "css": "github:systemjs/plugin-css@0.1.19",
     "ecmascript-evaluator": "npm:ecmascript-evaluator@0.0.6",
     "fetch": "npm:whatwg-fetch@0.10.1",
+    "jquery": "npm:jquery@2.2.3",
     "pusher-js": "npm:pusher-js@3.0.0",
     "pusher-js-client-auth": "npm:pusher-js-client-auth@0.1.0",
     "react": "npm:react@0.14.2",
@@ -234,6 +236,11 @@ System.config({
     "npm:boom@2.10.1": {
       "hoek": "npm:hoek@2.16.3",
       "http": "github:jspm/nodelibs-http@1.7.1"
+    },
+    "npm:bootstrap@3.3.6": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:brace-expansion@1.1.2": {
       "balanced-match": "npm:balanced-match@0.3.0",

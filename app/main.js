@@ -6,6 +6,9 @@ import 'fetch'
 
 import store from 'store';
 
+import $ from 'jquery'
+import 'bootstrap/js/tooltip'
+
 import 'npm:codemirror@5.8.0/mode/javascript/javascript';
 
 import { render } from 'react-dom';
@@ -34,9 +37,17 @@ class App extends React.Component {
       return null;
     }
 
-    return FEATURES.map(({ key, title }) => {
+    return FEATURES.map(({ key, title, tooltip }) => {
+      if (tooltip) {
+        return <li key={key} title={tooltip} data-toggle="tooltip" data-placement="bottom"><Link to={`/${key}`}>{title}</Link></li>;
+      }
+
       return <li key={key}><Link to={`/${key}`}>{title}</Link></li>;
     });
+  }
+
+  componentDidMount () {
+    $('li[data-toggle="tooltip"]').tooltip()
   }
 
   reset(e) {

@@ -14,6 +14,8 @@ import { getChallenge, saveChallenge } from '../challenge-store';
 
 import { DISPLAY_HELP as displayHelp } from '../ENV';
 
+import 'regenerator-runtime/runtime'
+
 const INITIAL_SOURCE = 'Chargement en cours…';
 
 export default class Challenge extends React.Component {

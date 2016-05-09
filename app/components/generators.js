@@ -8,9 +8,9 @@ export default class ArrowFunctions extends React.Component {
   render() {
     return (
       <div className="challenge row">
-        <Feature feature="promises" />
+        <Feature feature="generators" />
         <div className="col-md-12">
-          <Link className="btn btn-primary btn-lg btn-block" to= "/generators">Allons voir la prochaine génération…</Link>
+          <Link className="btn btn-primary btn-lg btn-block" to= "/finished">Eh ben c’était le dernier, dis donc…</Link>
         </div>
       </div>
     );

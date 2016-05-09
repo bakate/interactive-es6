@@ -30,6 +30,7 @@ System.config({
     "react-codemirror": "npm:react-codemirror@0.2.0",
     "react-dom": "npm:react-dom@0.14.2",
     "react-router": "npm:react-router@1.0.0",
+    "regenerator-runtime": "npm:regenerator-runtime@0.9.5",
     "store": "npm:store@1.3.17",
     "text": "github:systemjs/plugin-text@0.0.3",
     "uuid": "npm:uuid@2.0.1",
@@ -84,7 +85,7 @@ System.config({
       "path-browserify": "npm:path-browserify@0.0.0"
     },
     "github:jspm/nodelibs-process@0.1.2": {
-      "process": "npm:process@0.11.2"
+      "process": "npm:process@0.11.3"
     },
     "github:jspm/nodelibs-punycode@0.1.0": {
       "punycode": "npm:punycode@1.3.2"
@@ -974,6 +975,9 @@ System.config({
     "npm:process@0.11.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0"
     },
+    "npm:process@0.11.3": {
+      "assert": "github:jspm/nodelibs-assert@0.1.0"
+    },
     "npm:promise@7.0.4": {
       "asap": "npm:asap@2.0.3",
       "fs": "github:jspm/nodelibs-fs@0.1.2"
@@ -1067,6 +1071,10 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2",
       "readable-stream": "npm:readable-stream@2.0.5",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:regenerator-runtime@0.9.5": {
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:regex-cache@0.4.2": {
       "is-equal-shallow": "npm:is-equal-shallow@0.1.3",

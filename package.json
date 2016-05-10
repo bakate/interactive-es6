@@ -6,7 +6,8 @@
   "scripts": {
     "start": "babel-node scripts/jspm-live-server",
     "postinstall": "jspm install",
-    "deploy": "cd dist && surge ."
+    "deploy": "cd dist && surge .",
+    "deploy-redir": "surge --project dist-es6 --domain es6.js-attitude.fr"
   },
   "keywords": [],
   "author": "",

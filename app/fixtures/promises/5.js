@@ -8,10 +8,10 @@ function getUserEmails (...ids) {
 
 assertResolvesTo(
   getUserEmails(1, 2, 3),
-  ['Sincere@abril.biz', 'Shanna@melissa.tv', 'Nathan@yesenia.net']
+  'Sincere@april.biz / Shanna@melissa.tv / Nathan@yesenia.net'
 )
 
 assertResolvesTo(
   getUserEmails(4),
-  ['Julianne.OConner@kory.org']
+  'Julianne.OConner@kory.org'
 )

@@ -53,7 +53,7 @@ export default [
         <p>Une des grandes forces des promesses réside dans leur <strong>composabilité</strong> : il est facile de produire de nouvelles promesses à partir de promesses existantes.  Il est notamment facile de produire une promesse en combinant plusieurs autres, ce qui permet de paralléliser les traitements tout en attendant qu’ils aient tous abouti.</p>
         <p>Pour cet exercice, vous allez écrire une fonction qui reçoit en arguments un nombre quelconque d’IDs utilisateurs.  Pour chaque ID, vous ferez une requête <code>fetch</code> sur l’URL API de cet utilisateur (<tt>http://jsonplaceholder.typicode.com/users/1</tt> pour l’ID 1, par exemple). Mais ne faites pas ces requêtes en séquence : parallélisez-les.</p>
         <p>Produisez une promesse combinée des résultats, à l’aide de <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Promise/all"><code>Promise.all</code></a>, qui prend un tableau de promesses en argument et renvoie une promesse qui s’accomplira avec comme valeur le tableau des résultats (dans le bon ordre).  Dérivez alors les contenus JSON de chaque réponse, puis extrayez le champ <code>email</code> de chaque contenu.</p>
-        <p>Votre fonction renvoie une promesse qui s’accomplit avec comme résultat le tableau des e-mails des utilisateurs dont les IDs ont été fournis.</p>
+        <p>Votre fonction renvoie une promesse qui s’accomplit avec comme résultat la liste des e-mails des utilisateurs dont les IDs ont été fournis, séparés par une espace, un slash et une autre espace.</p>
         <p>Astuce : <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/map"><code>Array#map</code></a> est votre amie…</p>
       </div>
     )

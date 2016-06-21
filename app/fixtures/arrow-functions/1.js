@@ -5,10 +5,14 @@ const people = ['Alice', 'Bob', 'Claire', 'David']
 const longerNames = filterNamesAtLeast(6)
 
 // Sans utiliser de compteur externe…
-const prefixedUpperNames = people.map(/* ??? */)
+const prefixedUpperNames = people.map(
+  (xxx) => '???'
+)
 
 function filterNamesAtLeast(minLength) {
-  return people.filter(/* ??? */)
+  return people.filter(
+    (xxx) => '???'
+  )
 }
 
 // Bonus : convertir filterNamesAtLeast en

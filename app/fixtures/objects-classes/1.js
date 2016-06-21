@@ -17,3 +17,11 @@ try {
 } catch (err) {
   createAssertResult(false, 'method missing', [err])
 }
+
+roiDeLaClasse.first = 'John'
+roiDeLaClasse.last = 'Wayne'
+try {
+  assertEqual(roiDeLaClasse.fullName(), 'John Wayne')
+} catch (err) {
+  createAssertResult(false, 'method missing', [err])
+}

@@ -5,9 +5,19 @@ export default class Dashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      filter: {},
       pingsForHelp: [],
       activity: []
     };
+    this.applyFilter = this.applyFilter.bind(this)
+  }
+
+  applyFilter ({ target: { name, options, selectedIndex } }) {
+    const value = options[selectedIndex].value
+    console.log(name, options, selectedIndex, value)
+    const filter = { ...this.state.filter, [name]: value }
+    console.log(filter)
+    this.setState({ filter })
   }
 
   componentWillMount() {
@@ -57,16 +67,38 @@ export default class Dashboard extends React.Component {
   }
 
   renderActivity() {
+    const filter = this.state.filter
     return this.state.activity.map((activity, index) => {
       const wasSuccess = activity.res.error != true && activity.res.every((a) => a.passed === true);
+      const successLabel = wasSuccess ? 'Trop fort !' : 'Dommage !'
+      if (
+        filter.result && filter.result !== successLabel ||
+        filter.user && filter.user !== activity.user ||
+        filter.challenge && filter.challenge !== activity.challenge
+      ) {
+        return
+      }
       return (
         <tr key={JSON.stringify(activity)+index}>
           <td>{activity.user}</td>
           <td>{activity.challenge}</td>
-          <td>{ wasSuccess ? 'Trop fort !' : 'Dommage !' }</td>
+          <td>{successLabel}</td>
         </tr>
       );
     });
+  }
+
+  renderFilter (kind) {
+    const values = kind === 'result'
+      ? ['Trop fort !', 'Dommage !']
+      : this.state.activity.map((activity) => activity[kind])
+    const uniques = [...new Set(values)]
+    return (
+      <select name={kind} onChange={this.applyFilter}>
+        <option key='' value=''>—non filtré—</option>
+        {uniques.map((v) => <option key={v} value={v}>{v}</option>)}
+      </select>
+    )
   }
 
   render() {
@@ -85,7 +117,11 @@ export default class Dashboard extends React.Component {
         <h4>Activité</h4>
         <table className="table table-striped">
           <thead>
-            <tr><th>Nom</th><th>Exercice</th><th>Résultat</th></tr>
+            <tr>
+              <th>Nom {this.renderFilter('user')}</th>
+              <th>Exercice {this.renderFilter('challenge')}</th>
+              <th>Résultat {this.renderFilter('result')}</th>
+            </tr>
           </thead>
           <tbody>
             { this.renderActivity() }

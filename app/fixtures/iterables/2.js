@@ -7,6 +7,6 @@ const results = // ???
 const HEADINGS = [
   'for…of', 'Spread', 'Notre propre objet, itérable'
 ]
-HEADINGS.forEach((text, index) => {
+for (const [index, text] of HEADINGS.entries()) {
   assertEqual(results[index], text)
-})
+}

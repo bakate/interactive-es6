@@ -4,8 +4,8 @@ const [yay, nay, yo] = ['Yay', 'Nay', 'Yo']
 
 const result = bracketize`They say ${yay} then they say ${nay} but they mean ${yo}`
 
-function bracketize(/* ??? */) {
-  return statics.reduce(function(acc, text, index) {
+function bracketize (/* ??? */) {
+  return statics.reduce(function (acc, text, index) {
     return acc + // ???
   }, '')
 }

@@ -2,7 +2,7 @@
 
 // Déclarez convenablement term, times (défaut : 1)
 // et separator (défaut : ',') dans la signature.
-function repeat(/* ??? */) {
+function repeat (/* ??? */) {
   const result = []
   for (let index = 0; index < times; ++index) {
     result.push(term)

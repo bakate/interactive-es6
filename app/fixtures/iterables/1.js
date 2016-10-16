@@ -14,6 +14,6 @@ const EXPECTED = [
   'JS = 42', 'Elm = 40', 'Rust = 20',
   'a', 'b', 'c', 'd', 'e'
 ]
-EXPECTED.forEach((text, index) => {
+for (const [index, text] of EXPECTED.entries()) {
   assertEqual(text, results[index])
-})
+}

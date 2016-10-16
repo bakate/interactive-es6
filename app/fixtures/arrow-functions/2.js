@@ -3,7 +3,7 @@
 const BDFL = {
   biasedTowards: ['bob', 'david'],
 
-  processContributions(contribs) {
+  processContributions (contribs) {
     return contribs.filter(
       (xxx) => '???'
     )

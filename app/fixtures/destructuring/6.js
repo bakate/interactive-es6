@@ -2,7 +2,7 @@
 
 const ORIGINAL = { first: 'John', last: 'Smith' }
 
-function derive(overrides) {
+function derive (overrides) {
   return // ???
 }
 

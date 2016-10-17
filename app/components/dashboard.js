@@ -14,9 +14,7 @@ export default class Dashboard extends React.Component {
 
   applyFilter ({ target: { name, options, selectedIndex } }) {
     const value = options[selectedIndex].value
-    console.log(name, options, selectedIndex, value)
     const filter = { ...this.state.filter, [name]: value }
-    console.log(filter)
     this.setState({ filter })
   }
 
@@ -68,9 +66,12 @@ export default class Dashboard extends React.Component {
 
   renderActivity() {
     const filter = this.state.filter
+    const trialMap = {}
     return this.state.activity.map((activity, index) => {
-      const wasSuccess = activity.res.error != true && activity.res.every((a) => a.passed === true);
-      const successLabel = wasSuccess ? 'Trop fort !' : 'Dommage !'
+      const trialMapKey = `${activity.user}-${activity.challenge}`
+      const tryIndex = trialMap[trialMapKey] = (trialMap[trialMapKey] || 0) + 1
+      const wasSuccess = activityWasSuccessful(activity);
+      const successLabel = `${wasSuccess ? 'Trop fort !' : 'Dommage !'} (${tryIndex})`
       if (
         filter.result && filter.result !== successLabel ||
         filter.user && filter.user !== activity.user ||
@@ -89,14 +90,12 @@ export default class Dashboard extends React.Component {
   }
 
   renderFilter (kind) {
-    const values = kind === 'result'
-      ? ['Trop fort !', 'Dommage !']
-      : this.state.activity.map((activity) => activity[kind])
-    const uniques = [...new Set(values)]
+    console.log('RENDER FILTER', this.state.activity)
+    const values = computeValues(this.state.activity, kind)
     return (
       <select name={kind} onChange={this.applyFilter}>
         <option key='' value=''>—non filtré—</option>
-        {uniques.map((v) => <option key={v} value={v}>{v}</option>)}
+        {values.map(([v, t]) => <option key={v} value={v}>{t || v}</option>)}
       </select>
     )
   }
@@ -130,4 +129,31 @@ export default class Dashboard extends React.Component {
       </div>
     );
   }
+}
+
+function activityWasSuccessful ({ res }) {
+  return res.error != true && res.every((a) => a.passed === true)
+}
+
+function computeValues (activity, kind) {
+  if (kind === 'result') {
+    return [['Trop fort !'], ['Dommage !']]
+  }
+
+  if (kind !== 'challenge') {
+    return activity.map((act) => [act[kind]])
+  }
+
+  const results = {}
+  for (const act of activity) {
+    const value = act[kind]
+    const bucket = (results[value] = results[value] || { successes: new Set(), totals: new Set() })
+    bucket.totals.add(act.user)
+    if (activityWasSuccessful(act)) {
+      bucket.successes.add(act.user)
+    }
+  }
+  return Object.keys(results).sort().map(
+    (v) => [v, `${v} (${results[v].successes.size}/${results[v].totals.size})`]
+  )
 }

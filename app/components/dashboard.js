@@ -73,7 +73,7 @@ export default class Dashboard extends React.Component {
       const wasSuccess = activityWasSuccessful(activity);
       const successLabel = `${wasSuccess ? 'Trop fort !' : 'Dommage !'} (${tryIndex})`
       if (
-        filter.result && filter.result !== successLabel ||
+        filter.result && !successLabel.startsWith(filter.result) ||
         filter.user && filter.user !== activity.user ||
         filter.challenge && filter.challenge !== activity.challenge
       ) {
@@ -90,7 +90,6 @@ export default class Dashboard extends React.Component {
   }
 
   renderFilter (kind) {
-    console.log('RENDER FILTER', this.state.activity)
     const values = computeValues(this.state.activity, kind)
     return (
       <select name={kind} onChange={this.applyFilter}>

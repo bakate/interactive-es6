@@ -1,14 +1,16 @@
-import React from 'react';
-import pusher from '../pusher';
+import React from 'react'
+import pusher from '../pusher'
+import { DISPLAY_HELP as displayHelp } from '../ENV'
 
 export default class Dashboard extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = {
       filter: {},
       pingsForHelp: [],
-      activity: []
-    };
+      activity: [],
+      roster: []
+    }
     this.applyFilter = this.applyFilter.bind(this)
   }
 
@@ -18,19 +20,30 @@ export default class Dashboard extends React.Component {
     this.setState({ filter })
   }
 
-  componentWillMount() {
-    const helpChannel = pusher.subscribe('private-help-pings');
-    const activityChannel = pusher.subscribe('private-activity-feed');
+  componentWillMount () {
+    const helpChannel = pusher.subscribe('private-help-pings')
+    const activityChannel = pusher.subscribe('private-activity-feed')
+
+    const maintainRoster = (user) => {
+      const roster = this.state.roster.concat([user])
+      this.setState({
+        roster: [...new Set(roster)].sort((a, b) => a.localeCompare(b))
+      })
+    }
 
     helpChannel.bind('client-new-help', (data) => {
-      data.resolved = false;
-      this.setState({ pingsForHelp: this.state.pingsForHelp.concat([data]) });
-    });
+      data.resolved = false
+      this.setState({ pingsForHelp: this.state.pingsForHelp.concat([data]) })
+    })
+
+    helpChannel.bind('client-new-login', (data) => {
+      maintainRoster(data.user)
+    })
 
     activityChannel.bind('client-new-activity', (data) => {
-      console.log('got new activity', data);
-      this.setState({ activity: this.state.activity.concat([data]) });
-    });
+      maintainRoster(data.user)
+      this.setState({ activity: this.state.activity.concat([data]) })
+    })
   }
 
   resolve(e, index) {
@@ -67,10 +80,14 @@ export default class Dashboard extends React.Component {
   renderActivity() {
     const filter = this.state.filter
     const trialMap = {}
+    this.userMap = {}
     return this.state.activity.map((activity, index) => {
       const trialMapKey = `${activity.user}-${activity.challenge}`
       const tryIndex = trialMap[trialMapKey] = (trialMap[trialMapKey] || 0) + 1
       const wasSuccess = activityWasSuccessful(activity);
+      if (filter.challenge === activity.challenge) {
+        this.userMap[activity.user] = (wasSuccess ? true : tryIndex)
+      }
       const successLabel = `${wasSuccess ? 'Trop fort !' : 'Dommage !'} (${tryIndex})`
       if (
         filter.result && !successLabel.startsWith(filter.result) ||
@@ -99,21 +116,59 @@ export default class Dashboard extends React.Component {
     )
   }
 
-  render() {
+  renderRoster () {
+    const users = Object.keys(this.userMap)
+    if (users.length === 0) {
+      return (
+        <p>{this.state.roster.join(', ')}</p>
+      )
+    }
+
+    const successfulUsers = users.filter((u) => this.userMap[u] === true)
+    const failingUsers = this.state.roster
+      .filter((u) => !successfulUsers.includes(u))
+      .map((u) => [u, this.userMap[u] || 0])
+      .sort(([u1, s1], [u2, s2]) => s2 - s1)
+      .map(([user, score]) => `${user} (${score})`)
+    return (
+      <p>
+        {successfulUsers.length > 0 &&
+          <span>
+            <span className='successful'>{successfulUsers.join(', ')}</span>
+            {' • '}
+          </span>
+        }
+        <span className='failing'>{failingUsers.join(', ')}</span>
+      </p>
+    )
+  }
+
+  render () {
+    const activity = this.renderActivity()
     return (
       <div>
-        <h4>Demandes d’aide</h4>
-        <table className="table table-striped">
-          <thead>
-            <tr><th>Nom</th><th>Exercice</th><th>Tentatives</th><th>Dernière</th><th>Aidé-e ?</th></tr>
-          </thead>
-          <tbody>
-            { this.renderRows() }
-          </tbody>
-        </table>
+        {this.state.roster.length > 0 &&
+          <div className='roster'>
+            <h4>Roster</h4>
+            { this.renderRoster() }
+          </div>
+        }
+        {displayHelp &&
+          <div>
+            <h4>Demandes d’aide</h4>
+            <table className='table table-striped'>
+              <thead>
+                <tr><th>Nom</th><th>Exercice</th><th>Tentatives</th><th>Dernière</th><th>Aidé-e ?</th></tr>
+              </thead>
+              <tbody>
+                { this.renderRows() }
+              </tbody>
+            </table>
+          </div>
+        }
 
         <h4>Activité</h4>
-        <table className="table table-striped">
+        <table className='table table-striped'>
           <thead>
             <tr>
               <th>Nom {this.renderFilter('user')}</th>
@@ -122,11 +177,11 @@ export default class Dashboard extends React.Component {
             </tr>
           </thead>
           <tbody>
-            { this.renderActivity() }
+            { activity }
           </tbody>
         </table>
       </div>
-    );
+    )
   }
 }
 

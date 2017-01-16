@@ -1,42 +1,50 @@
-import React from 'react';
-import store from 'store';
+import React from 'react'
+import store from 'store'
+import { subscribeToHelp } from '../challenge-channels'
 
 export default class Username extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor (props) {
+    super(props)
     this.state = { username: store.get('username'), submitted: !!store.get('username') }
   }
 
-  updateName(e) {
-    this.setState({ username: e.target.value });
+  componentDidMount () {
+    this.helpChannel = subscribeToHelp()
   }
 
-  submitName(e) {
-    e.preventDefault();
-    store.set('username', this.state.username);
-    this.setState({ submitted: true });
-    console.log('got here');
-    this.props.nameSetCallback();
+  updateName (e) {
+    this.setState({ username: e.target.value })
   }
 
-  renderForm() {
+  submitName (e) {
+    e.preventDefault()
+    store.set('username', this.state.username)
+    this.setState({ submitted: true })
+    this.helpChannel.trigger('client-new-login', {
+      user: store.get('username')
+    })
+
+    this.props.nameSetCallback()
+  }
+
+  renderForm () {
     return (
-      <form className="navbar-form navbar-left" onSubmit={(e) => this.submitName(e) }>
-        <div className="form-group">
-          <input placeholder="Ton p’tit nom" className="form-control" type="text" value={this.state.username} onChange={(e) => this.updateName(e)} />
+      <form className='navbar-form navbar-left' onSubmit={(e) => this.submitName(e)}>
+        <div className='form-group'>
+          <input placeholder='Ton p’tit nom' className='form-control' type='text' value={this.state.username} onChange={(e) => this.updateName(e)} />
         </div>
-        <button type="submit" className="btn btn-default">C’est parti !</button>
+        <button type='submit' className='btn btn-default'>C’est parti !</button>
       </form>
-    );
+    )
   }
 
-  renderName() {
+  renderName () {
     return (
-      <p className="navbar-text">Tu es <strong>{ this.state.username }</strong></p>
-    );
+      <p className='navbar-text'>Tu es <strong>{ this.state.username }</strong></p>
+    )
   }
 
-  render() {
-    return this.state.submitted ? this.renderName() : this.renderForm();
+  render () {
+    return this.state.submitted ? this.renderName() : this.renderForm()
   }
 }

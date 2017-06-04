@@ -1,6 +1,6 @@
 // === Littéraux objets : propriétés calculées
 
-function makeObject(customProp, customValue) {
+function makeObject (customProp, customValue) {
   return {
     type: 'custom',
     createdAt: Date.now(),

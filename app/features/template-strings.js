@@ -21,6 +21,7 @@ export default [
       </div>
     )
   },
+  /*
   {
     index: 3,
     title: 'Les tagged template strings',
@@ -42,4 +43,5 @@ export default [
       </div>
     )
   }
+  */
 ]

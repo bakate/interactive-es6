@@ -11,9 +11,9 @@ const FEATURES = [
   { key: 'destructuring', title: 'Déstruct.', tooltip: 'Déstructuration', component: Destructuring },
   { key: 'template-strings', title: 'Templates', tooltip: 'Template Strings', component: TemplateStrings },
   { key: 'arrow-functions', title: 'Fx fléchées', tooltip: 'Fonctions fléchées', component: ArrowFunctions },
-  { key: 'promises', title: 'Promesses', component: Promises },
-  { key: 'generators', title: 'Générateurs', component: Generators },
-  { key: 'iterables', title: 'Itérables', component: Iterables }
+  // { key: 'promises', title: 'Promesses', component: Promises },
+  // { key: 'generators', title: 'Générateurs', component: Generators },
+  // { key: 'iterables', title: 'Itérables', component: Iterables }
 ]
 
 export default FEATURES

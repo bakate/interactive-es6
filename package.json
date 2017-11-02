@@ -6,7 +6,7 @@
   "scripts": {
     "start": "babel-node scripts/jspm-live-server",
     "postinstall": "jspm install",
-    "deploy": "cd dist && surge .",
+    "deploy": "netlify deploy",
     "deploy-redir": "surge --project dist-es6 --domain es6.js-attitude.fr"
   },
   "keywords": [],
@@ -26,7 +26,8 @@
   "jspm": {
     "dependencies": {
       "bootstrap": "npm:bootstrap@^3.3.6",
-      "capaj/jspm-hot-reloader": "github:alexisvincent/systemjs-hot-reloader?access_token=104addbc28977984701af5e1119d96f4dc728434@0.5.5",
+      "capaj/jspm-hot-reloader":
+        "github:alexisvincent/systemjs-hot-reloader?access_token=104addbc28977984701af5e1119d96f4dc728434@0.5.5",
       "css": "github:systemjs/plugin-css@^0.1.19",
       "ecmascript-evaluator": "npm:ecmascript-evaluator@^0.0.6",
       "fetch": "npm:whatwg-fetch@^0.10.1",

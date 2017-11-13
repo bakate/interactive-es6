@@ -1,32 +1,37 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>ES2015+ @ JS Attitude, 2016 Edition by Delicious Insights</title>
-    <style>
-      .challenge.row .col-md-12 { margin-bottom: 60px; }
-    </style>
-  </head>
-  <body>
-    <div id="app">
-      Chargement initial en cours…
-    </div>
 
-    <script src="jspm_packages/system.js"></script>
-    <script src="config.js"></script>
-    <script src="app/vendor/pusher.min.js"></script>
-    <script src="app/vendor/pusher-js-client-auth.js"></script>
-    <script id='import-script'>
-      System.import('app/main');
-    </script>
-    <script>
-      if (location.origin.match(/localhost/)) {
-        System.trace = true;
-        System.import('capaj/jspm-hot-reloader').then(function(HotReloader){
-          new HotReloader.default('http://localhost:8090')  // chokidar-socket-emitter port
-        }, function(err) {
-          console.error('Could not get HotReloader:', err);
-        })
-      }
-    </script>
-  </body>
+<head>
+  <title>ESLab @ Delicious Insights</title>
+  <style>
+    .challenge.row .col-md-12 {
+      margin-bottom: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    Chargement initial en cours…
+  </div>
+
+  <script src="jspm_packages/system.js"></script>
+  <script src="config.js"></script>
+  <script src="app/vendor/pusher.min.js"></script>
+  <script src="app/vendor/pusher-js-client-auth.js"></script>
+  <script id='import-script'>
+    System.import('app/main');
+  </script>
+  <script>
+    if (location.origin.match(/localhost/)) {
+      System.trace = true;
+      System.import('capaj/jspm-hot-reloader').then(function (HotReloader) {
+        new HotReloader.default('http://localhost:8090')  // chokidar-socket-emitter port
+      }, function (err) {
+        console.error('Could not get HotReloader:', err);
+      })
+    }
+  </script>
+</body>
+
 </html>
